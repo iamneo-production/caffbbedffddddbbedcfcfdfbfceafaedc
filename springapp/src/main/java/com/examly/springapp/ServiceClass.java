@@ -23,7 +23,11 @@ public class ServiceClass{
     }
    public List<ModelTask> findAllTask()
     {
-        return rep.findAll();
+        List<ModelTask> tasks = rep.findAll();
+        for (ModelTask task : tasks) {
+            task.setTaskHolderName(task.getTaskHolderName());
+        }
+        return tasks;
     }
     public void deleteTask(int id)
     {
